@@ -49,13 +49,12 @@ data["keypoints"].push(keypoints[i]);
 }
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function(){
-console.log(this.status);
 if(this.readyState == 4 && this.status == 200){
 console.log(this.responseText);
 }
 }
 var json_ = JSON.stringify(data);
-xmlhttp.open("GET","http://127.0.0.1:5000?type=js&data="+json_,true);
+xmlhttp.open("GET","http://127.0.0.1:5000?type=js&data="+Base64.encode(json_),true);
 xmlhttp.send();
 }
 

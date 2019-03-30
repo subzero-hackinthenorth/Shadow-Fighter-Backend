@@ -44,8 +44,11 @@ data = {};
 data["keypoints"] = [];
 for(var i=0; i<keypoints.length;i++){
 if(keypoints[i].score<minscore)
-continue;
+data["keypoints"].push({"position":{"x":-2,"y":-1}, "isdummy":true});
+else{
+keypoints[i]["isdummy"] = false
 data["keypoints"].push(keypoints[i]);
+}
 }
 var xmlhttp = new XMLHttpRequest();
 xmlhttp.onreadystatechange = function(){
